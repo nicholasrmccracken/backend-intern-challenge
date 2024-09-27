@@ -10,6 +10,9 @@ let payerBalances: { [key: string]: number } = {};
  */
 const addUserPoints = (transaction: Transaction) => {
     if (payerBalances[transaction.payer]) {
+        if (payerBalances[transaction.payer] + transaction.points < 0) {
+            throw new Error('Transaction creates negative payer balance');
+        }
         payerBalances[transaction.payer] += transaction.points;
     } else {
         payerBalances[transaction.payer] = transaction.points;

@@ -24,6 +24,11 @@ describe('Points API', () => {
 
     await request(app)
       .post('/add')
+      .send({ payer: 'DANNON', points: -200, timestamp: '2022-10-31T15:00:00Z' })
+      .expect(400);
+
+    await request(app)
+      .post('/add')
       .send({ payer: 'MILLER COORS', points: 10000, timestamp: '2022-11-01T14:00:00Z' })
       .expect(200);
 
