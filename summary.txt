@@ -1,0 +1,61 @@
+# Fetch Backend Intern Challenge Summary
+
+## 1. Tool, Libraries, and Language Choices
+
+I chose TypeScript to enhance my preferred API building language of JavaScript with static typing, to 
+improve the API's maintainability. I usually prefer TypeScript, and during this project, I  
+caught errors a lot earlier in the development process than I otherwise would have with JavaScript.
+
+### Libraries/Frameworks:
+
+- Express: I have the most backend experience with Express + Node.js, so a comfortable choice. 
+    It's also super minimalist, which I appreciate. 
+
+### Testing Libraries:
+
+- Jest: Standard testing library, which integrates well with TypeScript. 
+    This made the TDD process simple to implement.
+- Supertest: Offered HTTP integration tests for my Express app. 
+    This enabled me to meet the robust testing requirements of the project with little hassle.
+
+## 2. Advantages and Disadvantages of Your Solution
+
+### Advantages:
+
+- Modularity: This project loosely follows the MVC architectural pattern, which gave great modularity to the project
+    through the separation of the routes, controllers, models, and services. The API would be easily extensible
+    if other routes and functionality were to be implemented.
+
+- Contributing: With TypeScript and JSDoc, the code is well-defined and clear in its purpose, which would reduce the
+onboarding time for any new developers contributing to the API.
+
+- Test Driven Development: Using Jest and Supertest, the project can be continued with TDD, to ensure the Point API is always
+ready for any business application without error.
+
+### Disadvantages:
+
+- Memory Usage: The current implementation uses in-memory storage for transactions and balances. Thus, the application loses
+    all data from prior sessions when restarted. In future builds, the transactions and balances should be stored in a database
+    decoupled from the program.
+
+- Scope: The Point API currently only supports a single user. Through the implementation of a database, data from multiple users could
+    be stored. By updating the endpoints to require a user for POST requests, the API could then work with only this user's data.
+
+- Transaction Retrieval Overhead: Currently, transactions are stored in an array. This array must be resorted each time transactions
+    are added to ensure the oldest transactions are used for the spend endpoint. This could be improved by the use of a sorted data
+    structure like a heap, though a heap would introduce new overhead when adding new transactions, or updating transactions that
+    have had points spent. A custom data structure may be best in future implementations if the data set is expected to be large,
+    to alleviate potential performance bottlenecks.
+
+## 3. Favorite School/Personal Project
+
+Starting my internship at Procter & Gamble, my work plan centered around tools I had to wait for access. In this waiting stage, 
+I developed a prototype front-end for a command line tool the team used for simple form updating automation. My team decided 
+this new project I created would be more valuable, and I spent the rest of the term building out this tool. This full-stack 
+application, built in Python, was used to automate form-filling, form approvals, and CRUD operations on forms. The app had 
+user-friendly features like real-time data validation, multi-threading, and browser-less mode. My project saved my team an 
+estimated 750 hours annually with no previous alternative having existed; it was an incredible feeling to see the impact 
+my project had on my team. 
+
+This project was my first significant full-stack application and served as a great means of connection with my team and other
+interns. Later in my internship, I mentored a high school intern, who contributed a feature to the codebase of my app.
